@@ -35,7 +35,7 @@ const ProjectCard = ({ index, name, description, tags, images, source_code_link 
         {/* Image slideshow */}
         <div className="relative w-full h-[250px] overflow-hidden rounded-2xl">
           <img
-            src={images[current]}
+            // src={images[current]}
             alt={name}
             className="absolute inset-0 w-full h-full object-contain transition-all duration-700"
           />
