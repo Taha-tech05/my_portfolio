@@ -108,7 +108,7 @@ const Works = () => {
 
       <motion.div className="lg:ml-[420px]" variants={textVariant()}>
         <h2 className={styles.sectionHeadText}>Projects</h2>
-        <div className='lg:-ml-[60px] mt-3 flex gap-[20px] lg-[50px]'>
+        <div className='lg:-ml-[60px] mt-3 flex  gap-[20px] lg:gap-[50px]'>
           <button
             className={`px-6 py-2 rounded-xl text-white font-semibold hover:bg-purple-700 transition ${active === 'ml' ? 'bg-purple-700' : 'bg-blue-600'} hover:scale-110 transition-transform duration-300`}
             onClick={() => handleSwitch("ml", projects1)}

@@ -72,7 +72,7 @@ const Experience = () => {
       <motion.div className="lg:ml-[330px]" variants={textVariant()}>
         <h2 className={styles.sectionHeadText}>Work Experience</h2>
 
-        <div className='lg:ml-[70px] flex gap-[20px] lg-[50px] mt-3'>
+        <div className='lg:ml-[70px] flex gap-[20px] lg:gap-[50px] mt-3'>
           <button
             className={`px-6 py-2 rounded-xl text-white font-semibold hover:bg-purple-700 transition ${active === 'ml' ? 'bg-purple-700' : 'bg-blue-600'} hover:scale-110 transition-transform duration-300`}
             onClick={() => handleSwitch("ml", experiences1)}
