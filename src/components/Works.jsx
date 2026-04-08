@@ -86,8 +86,8 @@ const ProjectCard = ({ index, name, description, tags, images, source_code_link 
 
 
 const Works = () => {
-  const [active, setActive] = useState("ml");
-  const [activeProj, setActiveProj] = useState(projects1);
+  const [active, setActive] = useState("web");
+  const [activeProj, setActiveProj] = useState(projects3);
   const [rotation, setRotation] = useState(0);
   const handleSwitch = (section, data) => {
     if (active === section) return;
@@ -110,6 +110,13 @@ const Works = () => {
         <h2 className={styles.sectionHeadText}>Projects</h2>
         <div className='lg:-ml-[60px] mt-3 flex  gap-[20px] lg:gap-[50px]'>
           <button
+            className={`px-6 py-2 rounded-xl text-white font-semibold hover:bg-purple-700 transition ${active === 'web' ? 'bg-purple-700' : 'bg-blue-600'} hover:scale-110 transition-transform duration-300`}
+            onClick={() => handleSwitch("web", projects3)}
+          >
+            Web
+          </button>
+
+          <button
             className={`px-6 py-2 rounded-xl text-white font-semibold hover:bg-purple-700 transition ${active === 'ml' ? 'bg-purple-700' : 'bg-blue-600'} hover:scale-110 transition-transform duration-300`}
             onClick={() => handleSwitch("ml", projects1)}
           >
@@ -123,12 +130,7 @@ const Works = () => {
             Systems
           </button>
 
-          <button
-            className={`px-6 py-2 rounded-xl text-white font-semibold hover:bg-purple-700 transition ${active === 'web' ? 'bg-purple-700' : 'bg-blue-600'} hover:scale-110 transition-transform duration-300`}
-            onClick={() => handleSwitch("web", projects3)}
-          >
-            Web
-          </button>
+          
         </div>
 
       </motion.div>

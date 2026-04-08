@@ -42,7 +42,17 @@ import {
   book2,
   book3,
   news1,
-  news2
+  news2,
+  t1,
+  t2,
+  note1,
+  note2,
+  note3,
+  rent1,
+  rent2,
+  rent3,
+  rent4,
+  rent5,
 } from "../assets";
 
 export const navLinks = [
@@ -245,7 +255,7 @@ const projects2 = [
       { name: "os-concepts", color: "green-text-gradient" },
       { name: "simulation", color: "pink-text-gradient" },
     ],
-    images: [air1,air2], // wrapped in array
+    images: [air1, air2], // wrapped in array
     source_code_link: "https://github.com/Taha-tech05/Air-Traffic-Control-System", // replace with actual repo
   },
   {
@@ -257,7 +267,7 @@ const projects2 = [
       { name: "sql-server", color: "green-text-gradient" },
       { name: "desktop-app", color: "pink-text-gradient" },
     ],
-    images: [travel1,travel2,travel3,travel4], // wrapped in array
+    images: [travel1, travel2, travel3, travel4], // wrapped in array
     source_code_link: "https://github.com/Taha-tech05/TravelEase", // replace with actual repo
   },
   {
@@ -269,8 +279,22 @@ const projects2 = [
       { name: "simulation", color: "green-text-gradient" },
       { name: "a*-algorithm", color: "pink-text-gradient" },
     ],
-    images: [drone1,drone2], // wrapped in array
+    images: [drone1, drone2], // wrapped in array
     source_code_link: "https://github.com/Taha-tech05/Drone-Simulator", // replace with actual repo
+  },
+
+  {
+    name: "Rentify",
+    description:
+      "A comprehensive rental management system developed to provide a transparent and trustworthy marketplace for product sharing. Built using JavaFX and SQL Server, the platform features a multi-tiered architecture supporting three distinct user roles: Renters for product discovery and booking, Owners for inventory management, and Admins for system oversight and reporting. The project emphasizes rigorous software engineering principles, having been fully mapped through Use Case, Class, and System Sequence Diagrams (SSDs) before implementation to ensure data consistency and a seamless user experience.",
+    tags: [
+      { name: "java", color: "blue-text-gradient" },
+      { name: "javafx", color: "green-text-gradient" },
+      { name: "sql-server", color: "pink-text-gradient" },
+      { name: "desktop-app", color: "orange-text-gradient" },
+    ],
+    images: [rent1, rent2, rent3,rent4,rent5], // Replace with your actual project screenshots
+    source_code_link: "https://github.com/Taha-tech05/Rentify",
   },
 
 ];
@@ -285,19 +309,44 @@ const projects3 = [
       { name: "postgresql", color: "green-text-gradient" },
       { name: "fullstack", color: "pink-text-gradient" },
     ],
-    images: [book1,book2,book3], // wrapped in array
+    images: [book1, book2, book3], // wrapped in array
     source_code_link: "https://github.com/Taha-tech05/BookNotes", // replace with actual repo
   },
   {
+    name: "Family Travel Tracker",
+    description:
+      "A dynamic full-stack web application designed for families to track and visualize their global travels. Built with React and Node.js, the app features an interactive SVG world map that highlights visited countries per user. It includes a multi-user management system where members can be added with custom color profiles, a real-time statistics dashboard calculating world coverage percentages, and a PostgreSQL backend to manage persistent relational data for each family member's journey.",
+    tags: [
+      { name: "react", color: "blue-text-gradient" },
+      { name: "nodejs", color: "green-text-gradient" },
+      { name: "postgresql", color: "pink-text-gradient" },
+      { name: "svg-mapping", color: "orange-text-gradient" },
+    ],
+    images: [t1, t2], // Update these to your actual imported image variables
+    source_code_link: "https://github.com/Taha-tech05/Family-Travel-Tracker",
+  },
+
+  {
+    name: "NoteVault",
+    description:
+      "A sophisticated full-stack note-taking application built with React featuring a highly interactive UI for personal organization. The system supports dynamic note creation with options for standard text or interactive checklists, a custom color-coding system for visual categorization, and a pinning mechanism for priority tasks. ",
+    tags: [
+      { name: "react", color: "blue-text-gradient" }
+    ],
+    images: [note1, note2, note3], // Update with your actual imported image variables
+    source_code_link: "https://github.com/Taha-tech05/notevault",
+  },
+
+  {
     name: "ShadesCloth",
     description:
-    "An e-commerce clothing website built with HTML, CSS, and Bootstrap. The platform features a clean and modern UI with responsive layouts, ensuring smooth browsing across all devices. Users can explore different categories of clothing, view product galleries, and interact with a professional storefront design. The project highlights front-end web development skills, styling consistency, and user-focused interface design, making it a great demonstration of responsive design practices.",
+      "An e-commerce clothing website built with HTML, CSS, and Bootstrap. The platform features a clean and modern UI with responsive layouts, ensuring smooth browsing across all devices. Users can explore different categories of clothing, view product galleries, and interact with a professional storefront design. The project highlights front-end web development skills, styling consistency, and user-focused interface design, making it a great demonstration of responsive design practices.",
     tags: [
       { name: "html", color: "blue-text-gradient" },
       { name: "css", color: "green-text-gradient" },
       { name: "bootstrap", color: "pink-text-gradient" },
     ],
-    images: [shades1,shades2,shades3], // wrapped in array
+    images: [shades1, shades2, shades3], // wrapped in array
     source_code_link: "https://github.com/Taha-tech05/shadescloths", // replace with actual repo
   },
   {
@@ -309,7 +358,7 @@ const projects3 = [
       { name: "express", color: "green-text-gradient" },
       { name: "mailchimp-api", color: "pink-text-gradient" },
     ],
-    images: [news1,news2], // wrapped in array
+    images: [news1, news2], // wrapped in array
     source_code_link: "https://github.com/Taha-tech05/Newsletter", // replace with actual repo
   },
 ];

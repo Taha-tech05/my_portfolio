@@ -48,6 +48,12 @@ import travel3 from "./System/travel3.png"
 import travel4 from "./System/travel4.png"
 import drone1 from "./System/drone1.png"
 import drone2 from "./System/drone2.png"
+import rent1 from "./System/rent1.png"
+import rent2 from "./System/rent2.png"
+import rent3 from "./System/rent3.png"
+import rent4 from "./System/rent4.png"
+import rent5 from "./System/rent5.png"
+
 
 import book1 from "./Web/book1.png"
 import book2 from "./Web/book2.png"
@@ -57,7 +63,11 @@ import shades2 from "./Web/shades2.png"
 import shades3 from "./Web/shades3.png"
 import news1 from "./Web/news1.png"
 import news2 from "./Web/news2.png"
-
+import t1 from "./Web/travel1.png"
+import t2 from "./Web/travel2.png"
+import note1 from "./Web/note1.png"
+import note2 from "./Web/note2.png"
+import note3 from "./Web/note3.png"
 
 export {
   logo,
@@ -112,5 +122,15 @@ export {
   shades3,
   book1,
   book2,
-  book3
+  book3,
+  t1,
+  t2,
+  note1,
+  note2,
+  note3,
+  rent1,
+  rent2,
+  rent3,
+  rent4,
+  rent5
 };
