@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { styles } from "../style"
 import { navLinks } from '../constants'
@@ -19,7 +19,7 @@ const Navbar = () => {
           <img src={logo} alt="logo" className='w-9 h-9 object-contain' />
           <p className="text-white text-[18px] font-bold cursor-pointer">Taha<span className='sm:block hidden'>| Portfolio</span></p>
         </Link>
-        <ul className='list-none hidden sm:flex flex-row gap-10'>
+        <ul className='list-none hidden md:flex flex-row md:gap-5 lg:gap-10'>
           {navLinks.map((links) => (
             <li key={links.id}
               className={`${active === links.title ?
@@ -34,7 +34,7 @@ const Navbar = () => {
           ))}
 
         </ul>
-        <div className='sm:hidden flex flex-1 justify-end items-center'>
+        <div className='md:hidden flex flex-1 justify-end items-center'>
           <img src={toggle ? close : menu}
             alt="menu"
             className='w-[28px] h-[28px] object-contain cursor-pointer'
@@ -44,7 +44,7 @@ const Navbar = () => {
           />
 
           <div className={
-            `${toggle ? "flex" : "hidden"} p-6 black-gradient absolute top-16 right-0 mx-4 my-2 min-w-[140px] z-10 rounded-xl`
+            `${toggle ? "flex" : "hidden"} p-6 black-gradient absolute top-16 right-0 mx-4 my-2 min-w-[180px] z-10 rounded-xl`
           }>
             <ul className='list-none flex flex-col gap-5 '>
               {navLinks.map((links) => (

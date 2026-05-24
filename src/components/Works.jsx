@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import Tilt from "react-parallax-tilt"
 import { motion } from 'framer-motion'
 import { styles } from "../style"
 import { github } from "../assets"
@@ -7,9 +6,10 @@ import { SectionWrapper } from "../hoc"
 import { projects1, projects2, projects3 } from "../constants"
 import { fadeIn, textVariant } from '../utils/motion'
 
-const ProjectCard = ({ index, name, description, tags, images, source_code_link }) => {
+const ProjectCard = ({ name, description, tags, images, source_code_link, deployed_link }) => {
   const [current, setCurrent] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
+  const hasDeployedLink = Boolean(deployed_link);
 
   useEffect(() => {
     let interval;
@@ -24,11 +24,22 @@ const ProjectCard = ({ index, name, description, tags, images, source_code_link 
   return (
     <motion.div
       style={{ backfaceVisibility: "hidden" }}
-      //variants={fadeIn("up", "spring", index * 0.5, 0.75)}
     >
       <div
-        className="bg-tertiary p-5 rounded-2xl w-full  
-             transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl"
+        className={`bg-tertiary p-5 rounded-2xl w-full transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl ${hasDeployedLink ? "cursor-pointer" : ""}`}
+        role={hasDeployedLink ? "link" : undefined}
+        tabIndex={hasDeployedLink ? 0 : undefined}
+        onClick={() => {
+          if (hasDeployedLink) {
+            window.open(deployed_link, "_blank");
+          }
+        }}
+        onKeyDown={(event) => {
+          if (hasDeployedLink && (event.key === "Enter" || event.key === " ")) {
+            event.preventDefault();
+            window.open(deployed_link, "_blank");
+          }
+        }}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
@@ -53,7 +64,10 @@ const ProjectCard = ({ index, name, description, tags, images, source_code_link 
 
           {/* Github icon (not blocking hover now) */}
           <div
-            onClick={() => window.open(source_code_link, "_blank")}
+            onClick={(event) => {
+              event.stopPropagation();
+              window.open(source_code_link, "_blank");
+            }}
             className="absolute top-2 right-2 black-gradient w-10 h-10 rounded-full 
                        flex justify-center items-center cursor-pointer z-10"
           >
@@ -153,7 +167,6 @@ const Works = () => {
         {activeProj.map((project, index) => (
           <ProjectCard
             key={index}
-            index={index}   // ✅ pass index
             {...project}
           />
         ))}
@@ -163,4 +176,4 @@ const Works = () => {
   )
 }
 
-export default SectionWrapper(Works, "")
+export default SectionWrapper(Works, "projects")

@@ -62,7 +62,15 @@ export const navLinks = [
   },
   {
     id: "work",
-    title: "Work",
+    title: "Experience",
+  },
+  {
+    id: "skills",
+    title: "Skills",
+  },
+  {
+    id: "projects",
+    title: "Projects",
   },
   {
     id: "contact",
@@ -156,7 +164,7 @@ const technologies = [
   // },
 ];
 
-const experiences1 = [
+const experiences = [
   {
     title: "AI Intern",
     company_name: "AI Genmat",
@@ -171,36 +179,6 @@ const experiences1 = [
     ],
   },
 
-];
-const experiences2 = [
-  // {
-  //   title: "Web Intern",
-  //   company_name: "AI Genmat",
-  //   icon: aigenmat,
-  //   iconBg: "white",
-  //   date: "June 2025 - August 2025",
-  //   points: [
-  //     "Assisted in developing and testing machine learning models for real-world applications.",
-  //     "Conducted data preprocessing and cleaning to prepare datasets for training and evaluation.",
-  //     "Implemented and optimized algorithms using Python, NumPy, pandas, and scikit-learn.",
-  //     "Gained hands-on experience in AI workflows, and Web-Scraping(Automation)",
-  //   ],
-  // },
-];
-const experiences3 = [
-  // {
-  //   // title: "System Intern",
-  //   // company_name: "AI Genmat",
-  //   // icon: aigenmat,
-  //   // iconBg: "white",
-  //   // date: "June 2025 - August 2025",
-  //   // points: [
-  //   //   "Assisted in developing and testing machine learning models for real-world applications.",
-  //   //   "Conducted data preprocessing and cleaning to prepare datasets for training and evaluation.",
-  //   //   "Implemented and optimized algorithms using Python, NumPy, pandas, and scikit-learn.",
-  //   //   "Gained hands-on experience in AI workflows, and Web-Scraping(Automation)",
-  //   // ],
-  // },
 ];
 
 const testimonials = [
@@ -242,6 +220,7 @@ const projects1 = [
     ],
     images: [ml1img1, ml1img2, ml1img3],
     source_code_link: "https://github.com/Taha-tech05/House-Prices-ML-model",
+    deployed_link: "",
   },
 ];
 
@@ -257,6 +236,7 @@ const projects2 = [
     ],
     images: [air1, air2], // wrapped in array
     source_code_link: "https://github.com/Taha-tech05/Air-Traffic-Control-System", // replace with actual repo
+    deployed_link: "",
   },
   {
     name: "TravelEase",
@@ -269,6 +249,7 @@ const projects2 = [
     ],
     images: [travel1, travel2, travel3, travel4], // wrapped in array
     source_code_link: "https://github.com/Taha-tech05/TravelEase", // replace with actual repo
+    deployed_link: "",
   },
   {
     name: "Drone Simulator",
@@ -281,6 +262,7 @@ const projects2 = [
     ],
     images: [drone1, drone2], // wrapped in array
     source_code_link: "https://github.com/Taha-tech05/Drone-Simulator", // replace with actual repo
+    deployed_link: "",
   },
 
   {
@@ -295,6 +277,7 @@ const projects2 = [
     ],
     images: [rent1, rent2, rent3,rent4,rent5], // Replace with your actual project screenshots
     source_code_link: "https://github.com/Taha-tech05/Rentify",
+    deployed_link: "",
   },
 
 ];
@@ -311,6 +294,7 @@ const projects3 = [
     ],
     images: [book1, book2, book3], // wrapped in array
     source_code_link: "https://github.com/Taha-tech05/BookNotes", // replace with actual repo
+    deployed_link: "",
   },
   {
     name: "Family Travel Tracker",
@@ -324,6 +308,7 @@ const projects3 = [
     ],
     images: [t1, t2], // Update these to your actual imported image variables
     source_code_link: "https://github.com/Taha-tech05/Family-Travel-Tracker",
+    deployed_link: "",
   },
 
   {
@@ -335,6 +320,7 @@ const projects3 = [
     ],
     images: [note1, note2, note3], // Update with your actual imported image variables
     source_code_link: "https://github.com/Taha-tech05/notevault",
+    deployed_link: "",
   },
 
   {
@@ -348,6 +334,7 @@ const projects3 = [
     ],
     images: [shades1, shades2, shades3], // wrapped in array
     source_code_link: "https://github.com/Taha-tech05/shadescloths", // replace with actual repo
+    deployed_link: "",
   },
   {
     name: "Newsletter App",
@@ -360,6 +347,7 @@ const projects3 = [
     ],
     images: [news1, news2], // wrapped in array
     source_code_link: "https://github.com/Taha-tech05/Newsletter", // replace with actual repo
+    deployed_link: "",
   },
 ];
-export { services, technologies, experiences1, experiences2, experiences3, testimonials, projects1, projects2, projects3 };
+export { services, technologies, experiences, testimonials, projects1, projects2, projects3 };
