@@ -284,6 +284,34 @@ const projects2 = [
 
 const projects3 = [
   {
+    name: "Financial Tracking System",
+    description:
+      "Team project built with Next.js, Express.js, and PostgreSQL. Developed a responsive SSR dashboard UI with data visualization components for real-time donation metrics across 1,000+ transactions and 50+ projects. Built JWT authentication flows, protected routes, session handling, permission-based UI rendering, and deployed the app on Vercel with environment-based production and staging configuration.",
+    tags: [
+      { name: "nextjs", color: "blue-text-gradient" },
+      { name: "expressjs", color: "green-text-gradient" },
+      { name: "postgresql", color: "pink-text-gradient" },
+      { name: "jwt-auth", color: "orange-text-gradient" },
+    ],
+    images: [],
+    source_code_link: "https://github.com/Taha-tech05/Financial-Tracker",
+    deployed_link: "https://financial-tracker-donation-manage.vercel.app/login",
+  },
+  {
+    name: "Property Dealer CRM System",
+    description:
+      "Solo full-stack CRM built with Next.js and MongoDB. Architected a modular React component library with 20+ reusable components for lead management CRUD, dashboards, and admin panels using TypeScript strict mode across 500+ leads. Implemented a pixel-perfect Tailwind CSS frontend with mobile-first responsive layouts, optimized bundle sizes, lazy loading, and a 95+ Lighthouse performance score.",
+    tags: [
+      { name: "nextjs", color: "blue-text-gradient" },
+      { name: "mongodb", color: "green-text-gradient" },
+      { name: "typescript", color: "pink-text-gradient" },
+      { name: "tailwindcss", color: "orange-text-gradient" },
+    ],
+    images: [],
+    source_code_link: "https://github.com/Taha-tech05/Property-Dealer-CRM-System",
+    deployed_link: "https://propertycrm.up.railway.app",
+  },
+  {
     name: "BookNotes",
     description:
       "A full-stack note-taking web application developed using Node.js and PostgreSQL. The system provides secure user authentication, note creation, editing, deletion, and persistent storage in a relational database. It is designed for efficiency, scalability, and reliability, demonstrating core concepts of backend APIs, database schema design, and CRUD functionality. With a focus on data integrity and clean architecture, BooNotes showcases both backend engineering and database management skills.",
