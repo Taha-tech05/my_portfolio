@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
+import Tilt from 'react-parallax-tilt'
 import { styles } from "../style"
 import { github } from "../assets"
 import { SectionWrapper } from "../hoc"
@@ -26,8 +27,15 @@ const ProjectCard = ({ name, description, tags, images, source_code_link, deploy
     <motion.div
       style={{ backfaceVisibility: "hidden" }}
     >
+      <Tilt
+        tiltMaxAngleX={8}
+        tiltMaxAngleY={8}
+        scale={1.02}
+        transitionSpeed={1200}
+        className="w-full"
+      >
       <div
-        className={`bg-tertiary p-5 rounded-2xl w-full transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl ${hasDeployedLink ? "cursor-pointer" : ""}`}
+        className={`bg-tertiary p-5 rounded-2xl w-full transition-shadow duration-300 hover:shadow-2xl ${hasDeployedLink ? "cursor-pointer" : ""}`}
         role={hasDeployedLink ? "link" : undefined}
         tabIndex={hasDeployedLink ? 0 : undefined}
         onClick={() => {
@@ -91,7 +99,11 @@ const ProjectCard = ({ name, description, tags, images, source_code_link, deploy
         {/* Project Info */}
         <div className="mt-5">
           <h3 className="text-white font-bold text-[24px]">{name}</h3>
-          <p className="mt-2 text-secondary text-[14px]">{description}</p>
+          <ul className="mt-2 space-y-1.5 text-secondary text-[14px] leading-snug">
+            <li><span className="text-white font-semibold">Problem: </span>{description.problem}</li>
+            <li><span className="text-white font-semibold">Approach: </span>{description.approach}</li>
+            <li><span className="text-white font-semibold">Result: </span>{description.result}</li>
+          </ul>
         </div>
 
         {/* Tags */}
@@ -103,6 +115,7 @@ const ProjectCard = ({ name, description, tags, images, source_code_link, deploy
           ))}
         </div>
       </div>
+      </Tilt>
     </motion.div>
   );
 };

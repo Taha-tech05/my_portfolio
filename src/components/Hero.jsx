@@ -1,12 +1,24 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { motion } from "framer-motion"
 import { styles } from "../style"
 import { ComputersCanvas } from "./canvas"
 import { github, linkedin } from '../assets'
-import useIsMobile from '../hooks/useIsMobile'
+
+const socialLinks = [
+  { href: "https://github.com/Taha-tech05", icon: github, label: "GitHub Profile" },
+  { href: "https://www.linkedin.com/in/taha-irfan05/", icon: linkedin, label: "LinkedIn Profile" },
+]
 
 const Hero = () => {
-  const isMobile = useIsMobile()
+  const [showCanvas, setShowCanvas] = useState(false)
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(min-width: 1024px)')
+    setShowCanvas(mediaQuery.matches)
+    const handleChange = (event) => setShowCanvas(event.matches)
+    mediaQuery.addEventListener('change', handleChange)
+    return () => mediaQuery.removeEventListener('change', handleChange)
+  }, [])
 
   return (
     <section className="relative w-full h-screen flex items-center justify-center overflow-hidden">
@@ -22,18 +34,34 @@ const Hero = () => {
           </div>
 
           {/* Hero text */}
-          <div className="flex-1 text-left">
-            <p className={`${styles.heroSubText} mt-2 text-white-100 text-lg sm:text-xl`}>
+          <motion.div
+            className="flex-1 text-left"
+            initial="hidden"
+            animate="show"
+            variants={{
+              hidden: {},
+              show: { transition: { staggerChildren: 0.15, delayChildren: 0.2 } },
+            }}
+          >
+            <motion.p
+              variants={{ hidden: { y: -20, opacity: 0 }, show: { y: 0, opacity: 1 } }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              className={`${styles.heroSubText} mt-2 text-white-100 text-lg sm:text-xl`}
+            >
               Hello <span className='text-2xl'>👋</span>
-            </p>
+            </motion.p>
 
-            <h1
+            <motion.h1
+              variants={{ hidden: { y: 20, opacity: 0 }, show: { y: 0, opacity: 1 } }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
               className={`${styles.heroHeadText} text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl`}
             >
               I'm <span className="text-[#915eff]">Taha</span>
-            </h1>
+            </motion.h1>
 
-            <p
+            <motion.p
+              variants={{ hidden: { y: 20, opacity: 0 }, show: { y: 0, opacity: 1 } }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
               className={`${styles.heroSubText} text-white-100 text-base sm:text-lg leading-relaxed`}
             >
               Computer Science student<br />
@@ -41,31 +69,39 @@ const Hero = () => {
               modern Web Applications,<br />
               exploring Machine Learning, and<br />
               crafting reliable Software solutions.
-            </p>
+            </motion.p>
 
             {/* Social buttons */}
-            <div className="mt-5 flex gap-10 items-center">
-              <a href="https://github.com/Taha-tech05">
-                <img
-                  src={github}
-                  alt="GitHub Profile"
-                  className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 rounded-full border-[5px] border-white hover:scale-110 transition-transform duration-300"
-                />
-              </a>
-              <a href="https://www.linkedin.com/in/taha-irfan05/">
-                <img
-                  src={linkedin}
-                  alt="LinkedIn Profile"
-                  className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 rounded-full border-[5px] border-white hover:scale-110 transition-transform duration-300"
-                />
-              </a>
-            </div>
-          </div>
+            <motion.div
+              variants={{ hidden: { y: 20, opacity: 0 }, show: { y: 0, opacity: 1 } }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              className="mt-5 flex gap-5 sm:gap-8 lg:gap-10 items-center"
+            >
+              {socialLinks.map(({ href, icon, label }) => (
+                <motion.a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={label}
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.92 }}
+                  className="block"
+                >
+                  <img
+                    src={icon}
+                    alt={label}
+                    className="w-11 h-11 sm:w-12 sm:h-12 lg:w-14 lg:h-14 rounded-full border-[3px] sm:border-[4px] lg:border-[5px] border-white"
+                  />
+                </motion.a>
+              ))}
+            </motion.div>
+          </motion.div>
         </div>
 
-        {/* Right 3D Canvas (hidden on mobile) */}
+        {/* Right 3D Canvas (hidden on mobile, not mounted at all to save resources) */}
         <div className="hidden lg:block w-[50%] h-[500px]">
-          <ComputersCanvas />
+          {showCanvas && <ComputersCanvas />}
         </div>
       </div>
 

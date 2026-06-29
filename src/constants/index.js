@@ -5,17 +5,13 @@ import {
   cdev,
   web,
   javascript,
-  typescript,
   html,
   css,
   reactjs,
-  redux,
   tailwind,
   nodejs,
   mongodb,
   git,
-  figma,
-  docker,
   aigenmat,
   carrent,
   jobit,
@@ -110,18 +106,10 @@ const technologies = [
     name: "JavaScript",
     icon: javascript,
   },
-  // {
-  //   name: "TypeScript",
-  //   icon: typescript,
-  // },
   {
     name: "React JS",
     icon: reactjs,
   },
-  // {
-  //   name: "Redux Toolkit",
-  //   icon: redux,
-  // },
   {
     name: "Tailwind CSS",
     icon: tailwind,
@@ -154,14 +142,6 @@ const technologies = [
     name: "psql",
     icon: psql,
   },
-  // {
-  //   name: "figma",
-  //   icon: figma,
-  // },
-  // {
-  //   name: "docker",
-  //   icon: docker,
-  // },
 ];
 
 const experiences = [
@@ -211,8 +191,11 @@ const testimonials = [
 const projects1 = [
   {
     name: "House Pricing Model",
-    description:
-      "The House Pricing Model predicts property prices based on key features such as location, size, number of rooms, and amenities. Using regression techniques, the model analyzes historical housing data to identify patterns and relationships between property attributes and their market values. Data preprocessing steps such as handling missing values, encoding categorical variables, and feature scaling were applied to improve accuracy. The model was trained and evaluated using metrics like RMSE and R², ensuring reliable performance. This project demonstrates practical application of machine learning for real estate price estimation and decision-making support",
+    description: {
+      problem: "Property prices are hard to estimate manually from raw housing data with many interacting features.",
+      approach: "Built a regression pipeline in Python — cleaned and encoded the dataset, scaled features, and trained a linear regression model.",
+      result: "Produced reliable price predictions evaluated with RMSE and R², demonstrating ML applied to real-estate valuation.",
+    },
     tags: [
       { name: "Data Preprocessing", color: "blue-text-gradient" },
       { name: "Pandas", color: "green-text-gradient" },
@@ -227,8 +210,11 @@ const projects1 = [
 const projects2 = [
   {
     name: "AirControlX",
-    description:
-      "AirControlX is a C/C++ simulation of an Automated Air Traffic Control System (ATCS). It integrates multiple operating system concepts such as scheduling, concurrency, and resource management to handle flight arrivals, departures, and routing. The system detects airspace violations, maintains detailed analytics, and provides a graphical simulation for visualization of aircraft movements. Designed as a modular project, it emphasizes real-time decision-making, system reliability, and safety in air traffic management.",
+    description: {
+      problem: "Air traffic systems must coordinate concurrent flight arrivals, departures, and routing while avoiding airspace violations.",
+      approach: "Built a C/C++ simulation applying OS concepts — scheduling, concurrency, and resource management — with a graphical view of aircraft movement.",
+      result: "A modular ATCS simulator that detects airspace violations in real time and logs detailed flight analytics.",
+    },
     tags: [
       { name: "c++", color: "blue-text-gradient" },
       { name: "os-concepts", color: "green-text-gradient" },
@@ -240,8 +226,11 @@ const projects2 = [
   },
   {
     name: "TravelEase",
-    description:
-      "TravelEase is a desktop-based travel management system built with C# and SQL Server. It provides a centralized platform connecting tour operators, travelers, admins, and service providers. The system supports modules such as trip creation and management, booking and payment handling, refunds, and user reviews. Its relational database ensures strong referential integrity across entities like Trips, Travellers, Operators, Services, Payments, and Reviews. With role-based access control and a structured workflow, TravelEase streamlines travel planning and management with efficiency and security.",
+    description: {
+      problem: "Tour operators, travelers, and admins needed one platform to manage trips, bookings, and payments without fragmented tools.",
+      approach: "Built a C# desktop app backed by SQL Server with role-based access and a relational schema covering trips, bookings, payments, and reviews.",
+      result: "A centralized travel management system with referential integrity across all entities and a structured booking-to-refund workflow.",
+    },
     tags: [
       { name: "c#", color: "blue-text-gradient" },
       { name: "sql-server", color: "green-text-gradient" },
@@ -253,8 +242,11 @@ const projects2 = [
   },
   {
     name: "Drone Simulator",
-    description:
-      "The Drone Simulator is a 3D simulation project built to replicate real-world drone navigation and control. It models realistic drone physics, directional movement, while supporting collision detection and obstacle avoidance. The system integrates the A* pathfinding algorithm to optimize drone navigation between waypoints, ensuring efficient and safe route planning. This makes it not only an interactive simulation but also a platform for experimenting with AI-driven flight algorithms, swarm coordination, and advanced aerial navigation scenarios.",
+    description: {
+      problem: "Testing drone navigation logic safely requires realistic physics and obstacle handling without a physical aircraft.",
+      approach: "Built a 3D simulation modeling drone physics and collision detection, integrating A* pathfinding for waypoint navigation.",
+      result: "An interactive platform for experimenting with AI-driven flight paths, obstacle avoidance, and swarm coordination scenarios.",
+    },
     tags: [
       { name: "c++", color: "blue-text-gradient" },
       { name: "simulation", color: "green-text-gradient" },
@@ -267,8 +259,11 @@ const projects2 = [
 
   {
     name: "Rentify",
-    description:
-      "A comprehensive rental management system developed to provide a transparent and trustworthy marketplace for product sharing. Built using JavaFX and SQL Server, the platform features a multi-tiered architecture supporting three distinct user roles: Renters for product discovery and booking, Owners for inventory management, and Admins for system oversight and reporting. The project emphasizes rigorous software engineering principles, having been fully mapped through Use Case, Class, and System Sequence Diagrams (SSDs) before implementation to ensure data consistency and a seamless user experience.",
+    description: {
+      problem: "Peer-to-peer rental marketplaces need trust and clear role separation between renters, owners, and admins.",
+      approach: "Designed the system end-to-end with Use Case, Class, and SSD diagrams before building a JavaFX + SQL Server multi-tier app.",
+      result: "A rental marketplace with dedicated renter, owner, and admin flows backed by a consistent, well-modeled data layer.",
+    },
     tags: [
       { name: "java", color: "blue-text-gradient" },
       { name: "javafx", color: "green-text-gradient" },
@@ -285,8 +280,11 @@ const projects2 = [
 const projects3 = [
   {
     name: "Financial Tracking System",
-    description:
-      "Team project built with Next.js, Express.js, and PostgreSQL. Developed a responsive SSR dashboard UI with data visualization components for real-time donation metrics across 1,000+ transactions and 50+ projects. Built JWT authentication flows, protected routes, session handling, permission-based UI rendering, and deployed the app on Vercel with environment-based production and staging configuration.",
+    description: {
+      problem: "A nonprofit team needed real-time visibility into donations across thousands of transactions and dozens of projects.",
+      approach: "Built an SSR dashboard with Next.js, Express, and PostgreSQL, with JWT auth, protected routes, and permission-based UI rendering.",
+      result: "A production dashboard tracking 1,000+ transactions across 50+ projects, deployed on Vercel with staging/prod configs.",
+    },
     tags: [
       { name: "nextjs", color: "blue-text-gradient" },
       { name: "expressjs", color: "green-text-gradient" },
@@ -299,8 +297,11 @@ const projects3 = [
   },
   {
     name: "Property Dealer CRM System",
-    description:
-      "Solo full-stack CRM built with Next.js and MongoDB. Architected a modular React component library with 20+ reusable components for lead management CRUD, dashboards, and admin panels using TypeScript strict mode across 500+ leads. Implemented a pixel-perfect Tailwind CSS frontend with mobile-first responsive layouts, optimized bundle sizes, lazy loading, and a 95+ Lighthouse performance score.",
+    description: {
+      problem: "Solo project needed to manage 500+ real estate leads with a fast, type-safe, reusable component system.",
+      approach: "Built a full-stack CRM with Next.js, MongoDB, and TypeScript strict mode, with 20+ reusable components for CRUD, dashboards, and admin panels.",
+      result: "A mobile-first Tailwind UI with lazy loading and bundle optimization that hit a 95+ Lighthouse score.",
+    },
     tags: [
       { name: "nextjs", color: "blue-text-gradient" },
       { name: "mongodb", color: "green-text-gradient" },
@@ -313,8 +314,11 @@ const projects3 = [
   },
   {
     name: "BookNotes",
-    description:
-      "A full-stack note-taking web application developed using Node.js and PostgreSQL. The system provides secure user authentication, note creation, editing, deletion, and persistent storage in a relational database. It is designed for efficiency, scalability, and reliability, demonstrating core concepts of backend APIs, database schema design, and CRUD functionality. With a focus on data integrity and clean architecture, BooNotes showcases both backend engineering and database management skills.",
+    description: {
+      problem: "Needed a reliable, persistent place to create and manage notes with proper authentication.",
+      approach: "Built a Node.js + PostgreSQL backend with secure auth and full CRUD for note creation, editing, and deletion.",
+      result: "A clean, schema-driven note-taking app demonstrating backend API and relational database design.",
+    },
     tags: [
       { name: "nodejs", color: "blue-text-gradient" },
       { name: "postgresql", color: "green-text-gradient" },
@@ -326,8 +330,11 @@ const projects3 = [
   },
   {
     name: "Family Travel Tracker",
-    description:
-      "A dynamic full-stack web application designed for families to track and visualize their global travels. Built with React and Node.js, the app features an interactive SVG world map that highlights visited countries per user. It includes a multi-user management system where members can be added with custom color profiles, a real-time statistics dashboard calculating world coverage percentages, and a PostgreSQL backend to manage persistent relational data for each family member's journey.",
+    description: {
+      problem: "Families wanted a shared way to visualize which countries each member had visited.",
+      approach: "Built a React + Node.js app with an interactive SVG world map, multi-user profiles with custom colors, and a PostgreSQL backend.",
+      result: "A real-time dashboard calculating each member's world-coverage percentage from persistent relational data.",
+    },
     tags: [
       { name: "react", color: "blue-text-gradient" },
       { name: "nodejs", color: "green-text-gradient" },
@@ -341,8 +348,11 @@ const projects3 = [
 
   {
     name: "NoteVault",
-    description:
-      "A sophisticated full-stack note-taking application built with React featuring a highly interactive UI for personal organization. The system supports dynamic note creation with options for standard text or interactive checklists, a custom color-coding system for visual categorization, and a pinning mechanism for priority tasks. ",
+    description: {
+      problem: "Standard note apps lack quick visual organization for mixed text and checklist content.",
+      approach: "Built a React app supporting both text and checklist notes, with custom color-coding and a pinning system for priority items.",
+      result: "An interactive personal organization tool with fast, intuitive note categorization.",
+    },
     tags: [
       { name: "react", color: "blue-text-gradient" }
     ],
@@ -353,8 +363,11 @@ const projects3 = [
 
   {
     name: "ShadesCloth",
-    description:
-      "An e-commerce clothing website built with HTML, CSS, and Bootstrap. The platform features a clean and modern UI with responsive layouts, ensuring smooth browsing across all devices. Users can explore different categories of clothing, view product galleries, and interact with a professional storefront design. The project highlights front-end web development skills, styling consistency, and user-focused interface design, making it a great demonstration of responsive design practices.",
+    description: {
+      problem: "A clothing brand needed a responsive storefront to showcase products across devices.",
+      approach: "Built an HTML/CSS/Bootstrap e-commerce front end with category browsing and product galleries.",
+      result: "A clean, responsive storefront demonstrating consistent styling and mobile-first layout practices.",
+    },
     tags: [
       { name: "html", color: "blue-text-gradient" },
       { name: "css", color: "green-text-gradient" },
@@ -366,8 +379,11 @@ const projects3 = [
   },
   {
     name: "Newsletter App",
-    description:
-      "A newsletter subscription system built using Node.js and Express.js with integration to the Mailchimp API. Users can easily subscribe by entering their email, which is then securely stored in the mailing list database. The app focuses on seamless API communication, error handling, and user-friendly interactions. It demonstrates backend-to-third-party service integration, server-side form handling, and secure data management for scalable communication solutions.",
+    description: {
+      problem: "Needed a simple, reliable way to collect and manage newsletter subscribers.",
+      approach: "Built a Node.js/Express backend integrated with the Mailchimp API for subscription handling and error handling.",
+      result: "A working subscription pipeline demonstrating secure third-party API integration and server-side form handling.",
+    },
     tags: [
       { name: "nodejs", color: "blue-text-gradient" },
       { name: "express", color: "green-text-gradient" },
