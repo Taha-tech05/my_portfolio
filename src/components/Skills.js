@@ -37,7 +37,7 @@ const curve = ({ a, b }) => {
   const d = (b.x - a.x) * 0.5;
   return `M${a.x},${a.y} C${a.x + d},${a.y} ${b.x - d},${b.y} ${b.x},${b.y}`;
 };
-const CYCLE_MS = 2000;
+const CYCLE_MS = 1000;
 
 export default function Skills() {
   const { lowMotion } = useUI();

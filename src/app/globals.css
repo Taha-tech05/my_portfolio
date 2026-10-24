@@ -107,8 +107,8 @@ section:last-of-type{border-bottom:none;}
 html[data-motion="low"] .reveal{opacity:1;transform:none;transition:none;}
 
 /* ============ hero ============ */
-.hero{padding-top:var(--space-8);padding-bottom:var(--space-8);min-height:calc(100vh - var(--breadcrumb-h));display:flex;flex-direction:column;justify-content:center;}
-.boot{font-family:var(--font-mono);font-size:13px;color:var(--accent-cyan);min-height:72px;white-space:pre-wrap;margin-bottom:var(--space-4);}
+.hero{position:relative;padding-top:var(--space-8);padding-bottom:var(--space-8);min-height:calc(100vh - var(--breadcrumb-h));display:flex;flex-direction:column;justify-content:center;}
+.boot{font-family:var(--font-mono);font-size:13px;color:var(--accent-cyan);position:absolute;top:var(--space-6);left:var(--space-6);right:var(--space-6);pointer-events:none;white-space:pre-wrap;}
 .boot .line{display:block;}
 .boot .dim{color:var(--text-tertiary);}
 .boot .cursor-blink{display:inline-block;width:7px;height:14px;background:var(--accent-cyan);vertical-align:-2px;animation:blink 1s steps(2) infinite;}
