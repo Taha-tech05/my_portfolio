@@ -37,7 +37,7 @@ function BootLine({ lowMotion }) {
     return () => timers.forEach(clearTimeout);
   }, [lowMotion]);
 
-  if (skip) return <div className="boot" aria-hidden="true" style={{ display: "none" }} />;
+  if (skip) return <div className="boot" aria-hidden="true" />;
   return (
     <div className="boot" aria-hidden="true" style={phase === "hidden" ? { opacity: 0, transition: "opacity 300ms" } : undefined}>
       {text}
