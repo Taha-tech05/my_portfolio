@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Reveal from "./Reveal";
 import SectionHead from "./SectionHead";
 import { useUI } from "./UIProvider";
@@ -74,7 +74,7 @@ function Cover({ project }) {
   );
 }
 
-function Inspector({ project, index }) {
+function Inspector({ project, index, onClose }) {
   const diagram = project.second
     ? `INPUT ──> PROCESS ──> OUTPUT\n          └──> ${project.second}`
     : "INPUT ──> PROCESS ──> OUTPUT";
@@ -92,6 +92,7 @@ function Inspector({ project, index }) {
         {project.github && (
           <a className="gh-link" href={project.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub">⌥ GitHub</a>
         )}
+        {onClose && <button className="modal-close" onClick={onClose} aria-label="Close project">✕</button>}
       </div>
       <div className="insp-body">
         <div className="tech-row">
@@ -115,8 +116,25 @@ function Inspector({ project, index }) {
 }
 
 export default function Projects() {
-  const { activeProject, selectProject } = useUI();
+  const { activeProject, selectProject, projectOpen, closeProject } = useUI();
   const [query, setQuery] = useState("");
+
+  const [mobile, setMobile] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 860px)");
+    const on = () => setMobile(mq.matches);
+    on();
+    mq.addEventListener("change", on);
+    return () => mq.removeEventListener("change", on);
+  }, []);
+
+  const modal = mobile && projectOpen;
+  useEffect(() => {
+    if (!modal) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => { document.body.style.overflow = prev; };
+  }, [modal]);
 
   const rows = useMemo(() => {
     const scored = projects.map((p, i) => ({ p, i, score: scoreProject(p, query) }));
@@ -144,8 +162,16 @@ export default function Projects() {
             </div>
           ))}
         </div>
-        <Inspector project={projects[activeProject]} index={activeProject} />
+        {!mobile && <Inspector project={projects[activeProject]} index={activeProject} />}
       </Reveal>
+      {modal && (
+        <div className="modal-backdrop" onClick={closeProject}>
+          <div className="modal-card" role="dialog" aria-modal="true" aria-label={projects[activeProject].name}
+            onClick={(e) => e.stopPropagation()}>
+            <Inspector project={projects[activeProject]} index={activeProject} onClose={closeProject} />
+          </div>
+        </div>
+      )}
     </section>
   );
 }

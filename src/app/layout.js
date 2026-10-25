@@ -15,11 +15,11 @@ export const metadata = {
   },
 };
 
-const motionInit = `try{var l=localStorage.getItem('low-motion')==='1'||matchMedia('(prefers-reduced-motion: reduce)').matches;document.documentElement.setAttribute('data-motion',l?'low':'full')}catch(e){}`;
+const motionInit = `try{if(localStorage.getItem('theme')==='light')document.documentElement.setAttribute('data-theme','light')}catch(e){}try{var l=localStorage.getItem('low-motion')==='1'||matchMedia('(prefers-reduced-motion: reduce)').matches;document.documentElement.setAttribute('data-motion',l?'low':'full')}catch(e){}`;
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" data-motion="full" className={`${sans.variable} ${mono.variable}`} suppressHydrationWarning>
+    <html lang="en" data-motion="full" data-theme="dark" className={`${sans.variable} ${mono.variable}`} suppressHydrationWarning>
       <head suppressHydrationWarning>
         <script dangerouslySetInnerHTML={{ __html: motionInit }} />
       </head>

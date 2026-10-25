@@ -6,7 +6,7 @@ import { sections } from "@/data/sections";
 import { projects } from "@/data/projects";
 
 export default function Shell({ children }) {
-  const { scrollToId, selectProject, openPalette } = useUI();
+  const { scrollToId, selectProject, openPalette, theme, toggleTheme } = useUI();
   const [drawer, setDrawer] = useState(false);
   const [projOpen, setProjOpen] = useState(true);
   const [current, setCurrent] = useState("hero");
@@ -70,6 +70,8 @@ export default function Shell({ children }) {
             <button className="kbd-hint" onClick={openPalette} aria-label="Open command palette">
               <kbd>⌘</kbd><kbd>K</kbd> command palette
             </button>
+            <button className="theme-toggle" onClick={toggleTheme} aria-label={`Switch to ${theme === "light" ? "dark" : "light"} mode`}
+              title={`Switch to ${theme === "light" ? "dark" : "light"} mode`}>{theme === "light" ? "☾" : "☀"}</button>
           </header>
           {children}
         </div>

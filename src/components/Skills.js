@@ -63,7 +63,7 @@ export default function Skills() {
     <section id="skills" aria-label="Skills">
       <SectionHead label="skills" title="skills.json" />
       <Reveal className="skills-wrap">
-        <div className="skills-svg-holder">
+        <div className="skills-svg-holder" style={{ "--skills-w": `${W}px` }}>
           <svg viewBox={`0 0 ${W} ${H + 24}`} width="100%" role="img"
             aria-label="Skills network diagram grouped by category, with connections between technologies used together in a project">
             {edges.map((e, i) => {
@@ -106,6 +106,7 @@ export default function Skills() {
                 style={{ fontFamily: "var(--font-mono)" }}>{layer.name}</text>
             ))}
           </svg>
+          <div className="skills-hint">{"// swipe sideways · tap a node"}</div>
         </div>
 
         <div className="skills-fallback">

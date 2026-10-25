@@ -12,6 +12,8 @@ export default function UIProvider({ children }) {
   const [lowMotion, setLowMotionState] = useState(false);
   const [toast, setToast] = useState({ text: "", show: false });
   const [activeProject, setActiveProject] = useState(0);
+  const [projectOpen, setProjectOpen] = useState(false);
+  const [theme, setThemeState] = useState("dark");
   const [paletteOpen, setPaletteOpen] = useState(false);
   const [lightbox, setLightbox] = useState(null);
   const toastTimer = useRef(null);
@@ -21,6 +23,19 @@ export default function UIProvider({ children }) {
     let stored = false;
     try { stored = localStorage.getItem("low-motion") === "1"; } catch {}
     setLowMotionState(stored || reduced);
+  }, []);
+
+  useEffect(() => {
+    setThemeState(document.documentElement.getAttribute("data-theme") === "light" ? "light" : "dark");
+  }, []);
+
+  const toggleTheme = useCallback(() => {
+    setThemeState((t) => {
+      const next = t === "light" ? "dark" : "light";
+      document.documentElement.setAttribute("data-theme", next);
+      try { localStorage.setItem("theme", next); } catch {}
+      return next;
+    });
   }, []);
 
   const setLowMotion = useCallback((v) => {
@@ -41,13 +56,14 @@ export default function UIProvider({ children }) {
 
   const selectProject = useCallback((i, scroll = false) => {
     setActiveProject(i);
+    setProjectOpen(true);
     if (scroll) scrollToId("projects");
   }, [scrollToId]);
 
   useEffect(() => {
     const onKey = (e) => {
       if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") { e.preventDefault(); setPaletteOpen(true); }
-      if (e.key === "Escape") { setPaletteOpen(false); setLightbox(null); }
+      if (e.key === "Escape") { setPaletteOpen(false); setLightbox(null); setProjectOpen(false); }
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
@@ -57,8 +73,9 @@ export default function UIProvider({ children }) {
 
   const value = useMemo(() => ({
     lowMotion, setLowMotion, showToast, scrollToId, activeProject, selectProject,
-    openPalette, openLightbox: setLightbox,
-  }), [lowMotion, setLowMotion, showToast, scrollToId, activeProject, selectProject, openPalette]);
+    openPalette, openLightbox: setLightbox, theme, toggleTheme,
+    projectOpen, closeProject: () => setProjectOpen(false),
+  }), [theme, toggleTheme, projectOpen, lowMotion, setLowMotion, showToast, scrollToId, activeProject, selectProject, openPalette]);
 
   return (
     <UIContext.Provider value={value}>
